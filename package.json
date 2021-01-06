@@ -1,0 +1,20 @@
+{
+  "name": "oop-js-alura",
+  "version": "1.0.0",
+  "description": "Object Oriented Programming with JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beans19/oop-js-alura.git"
+  },
+  "author": "Felipe Marques Stefani",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/beans19/oop-js-alura/issues"
+  },
+  "homepage": "https://github.com/beans19/oop-js-alura#readme",
+  "type": "module"
+}
