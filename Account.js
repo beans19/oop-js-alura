@@ -1,5 +1,7 @@
-export class CurrentAccount {
+export class Account {
     agency;
+    client;
+
     _balance = 0;
 
     withdrawn(amountWithdrawn) {
@@ -9,9 +11,13 @@ export class CurrentAccount {
     }
 
     deposit(amountDeposited) {
-        if(amountDeposited < 0) return;
+        if(amountDeposited <= 0) return;
         this._balance += amountDeposited;
         return amountDeposited;
-        
+    }
+
+    sendPix(ammount, account) {
+        const withdrawnValue = this.withdrawn(ammount);
+        account.deposit(withdrawnValue);
     }
 }
