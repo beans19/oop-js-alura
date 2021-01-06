@@ -17,20 +17,19 @@ class Client {
 
 class currentAccount {
     agency;
-    #balance = 0;
+    _balance = 0;
 
     withdrawn(amountWithdrawn) {
-        if (this.#balance >= amountWithdrawn){
-            this.#balance -= amountWithdrawn;
-            console.log('balance after withdrawn: ', this.#balance);
-        }
+        if (this._balance < amountWithdrawn) return;
+        this._balance -= amountWithdrawn;
+        return amountWithdrawn;
     }
 
     deposit(amountDeposited) {
-        if(amountDeposited > 0){
-            this.#balance += amountDeposited;
-            console.log('balance after deposit: ', this.#balance);
-        }
+        if(amountDeposited < 0) return;
+        this._balance += amountDeposited;
+        return amountDeposited;
+        
     }
 }
 
@@ -52,7 +51,7 @@ const client1CurrentAccount = new currentAccount();
 
 client1CurrentAccount.agency = "9666";
 
-// console.log(client1CurrentAccount.balance);
+// _
 
 // let amountWithdrawn = 200;
 
@@ -70,6 +69,8 @@ client1CurrentAccount.agency = "9666";
 
 client1CurrentAccount.deposit(450);
 
-client1CurrentAccount.withdrawn(100)
+console.log(client1CurrentAccount._balance);
 
-console.log(client1CurrentAccount);
+const withdrawnValue= client1CurrentAccount.withdrawn(150);
+
+console.log(withdrawnValue);
