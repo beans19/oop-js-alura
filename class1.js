@@ -17,11 +17,19 @@ class Client {
 
 class currentAccount {
     agency;
-    balance;
+    #balance = 0;
 
     withdrawn(amountWithdrawn) {
-        if (this.balance >= amountWithdrawn){
-            this.balance -= amountWithdrawn;
+        if (this.#balance >= amountWithdrawn){
+            this.#balance -= amountWithdrawn;
+            console.log('balance after withdrawn: ', this.#balance);
+        }
+    }
+
+    deposit(amountDeposited) {
+        if(amountDeposited > 0){
+            this.#balance += amountDeposited;
+            console.log('balance after deposit: ', this.#balance);
         }
     }
 }
@@ -43,15 +51,10 @@ console.log(client2);
 const client1CurrentAccount = new currentAccount();
 
 client1CurrentAccount.agency = "9666";
-client1CurrentAccount.balance = 0;
 
-console.log(client1CurrentAccount.balance);
+// console.log(client1CurrentAccount.balance);
 
-client1CurrentAccount.balance = 200;
-
-console.log(client1CurrentAccount.balance);
-
-let amountWithdrawn = 200;
+// let amountWithdrawn = 200;
 
 // client1CurrentAccount.balance -= amountWithdrawn;
 
@@ -65,6 +68,8 @@ let amountWithdrawn = 200;
 
 //this could turn into a function, so let's do it!
 
-client1CurrentAccount.withdrawn(50)
+client1CurrentAccount.deposit(450);
 
-console.log(client1CurrentAccount.balance);
+client1CurrentAccount.withdrawn(100)
+
+console.log(client1CurrentAccount);
