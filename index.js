@@ -1,23 +1,18 @@
 import { Client } from './Client.js';
 import { Account } from './Account.js';
 
-const client1 = new Client();
-client1.name = 'Felipe';
-client1.number = 45674125632;
-
-const client2 = new Client();
-client2.name = 'Maria';
-client2.number = 456231565485;
 
 const account1 = new Account();
 account1.agency = 666;
-account1.client = client1;
+account1.client = new Client();
+account1.client.name = 'Felipe';
+account1.client.number = 777;
 
 const account2 = new Account();
 account2.agency = 777;
 account2.client = new Client();
 account2.client.name = 'Maria';
-account2.client.number = '25136545698';
+account2.client.number = 666;
 
 let income = 500;
 let pixValue = 200;

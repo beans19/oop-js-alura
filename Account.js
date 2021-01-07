@@ -1,8 +1,24 @@
+import { Client } from "./Client.js";
+
 export class Account {
     agency;
-    client;
-
+    
+    _client;
     _balance = 0;
+
+    set client(client) {
+        if ( !(client instanceof Client) ) return;
+        this._client = client;
+        return this._client;
+    }
+
+    get client() {
+        return this._client;
+    }
+
+    get balance() {
+        return this._balance
+    }
 
     withdrawn(amountWithdrawn) {
         if (this._balance < amountWithdrawn) return;
