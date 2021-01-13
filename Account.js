@@ -1,19 +1,27 @@
 import { Client } from "./Client.js";
 
 export class Account {
+    static numberOfAccounts = 0;
+
     agency;
-    
-    _client;
+    client;
+
     _balance = 0;
+
+    constructor(agency, client){
+        this.agency = agency
+        this.client = client;
+        Account.numberOfAccounts += 1;
+    }
 
     set client(client) {
         if ( !(client instanceof Client) ) return;
-        this._client = client;
-        return this._client;
+        this.client = client;
+        return this.client;
     }
 
     get client() {
-        return this._client;
+        return this.client;
     }
 
     get balance() {

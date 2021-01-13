@@ -2,17 +2,11 @@ import { Client } from './Client.js';
 import { Account } from './Account.js';
 
 
-const account1 = new Account();
-account1.agency = 666;
-account1.client = new Client();
-account1.client.name = 'Felipe';
-account1.client.number = 777;
+const client1 = new Client('Felipe', 777);
+const account1 = new Account(666, client1);
 
-const account2 = new Account();
-account2.agency = 777;
-account2.client = new Client();
-account2.client.name = 'Maria';
-account2.client.number = 666;
+const client2 = new Client('Maria', 666);
+const account2 = new Account(777, client2);
 
 let income = 500;
 let pixValue = 200;
@@ -23,3 +17,4 @@ account1.sendPix(pixValue, account2);
 
 console.log('Account 1', account1);
 console.log('Account 2', account2);
+console.log(Account.numberOfAccounts);
